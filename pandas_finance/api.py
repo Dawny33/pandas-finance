@@ -1,16 +1,18 @@
 import datetime
 import math
+import datetime
 
 import pandas as pd
 import mibian
+import requests_cache
 
 import pandas_datareader.data as pdr
 from pandas_datareader.data import Options
 
-import requests_cache
 
 TRADING_DAYS=252
 CACHE_HRS = 1
+START_DATE = datetime.date(1990,1,1)
 
 class Equity(object):
 
@@ -46,7 +48,7 @@ class Equity(object):
 
     @property
     def trading_data(self):
-        return pdr.DataReader(self.ticker, 'yahoo', session=self._session)
+        return pdr.DataReader(self.ticker, 'yahoo', session=self._session, start=START_DATE)
 
     @property
     def dividends(self):
