@@ -3,7 +3,6 @@ import math
 
 import pandas as pd
 import mibian
-import requests_cache
 import pandas_datareader.data as pdr
 import requests_cache
 from bs4 import BeautifulSoup
